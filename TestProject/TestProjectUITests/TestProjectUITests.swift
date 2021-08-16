@@ -40,8 +40,10 @@ class TestProjectUITests: XCTestCase {
         XCTAssertEqual(buttonReg.title, "Register", "Button's title is not OK")
         let buttonCan = app.buttons["Cancel"]
         XCTAssertEqual(buttonCan.title, "Cancel", "Button's title is not OK")
-        let buttonSave = app.buttons["CheckBoxSave"]
-        XCTAssertEqual(buttonSave.title, "CheckBoxSave", "Button's title is not OK")
+        let checkBoxSave = app.checkBoxes["Save"]
+        XCTAssert(checkBoxSave.exists, "Button's title is not OK")
+        let datePicker = app.datePickers["Picker-1"]
+        XCTAssert(datePicker.exists, "Not exists")
     }
 
     func testTextImputting() {
@@ -68,9 +70,8 @@ class TestProjectUITests: XCTestCase {
     }
     
     func testNSDatePiker(){
-        let datePicker = app.datePickers["DatePicker-1"]
-        datePicker.scrollViews.buttons.activityIndicators
-        
+        let datePicker = app.datePickers["Picker-1"]
+        datePicker.typeText("1/1/2000")
+        print("")
     }
-
 }
